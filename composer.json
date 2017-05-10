@@ -54,7 +54,7 @@
             "@symfony-scripts"
         ],
         "compile": [
-            "gulp --production"
+            "npm install --dev && npm node_modules/.bin/gulp --production"
         ]
     },
     "config": {
