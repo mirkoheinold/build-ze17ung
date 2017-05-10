@@ -15,6 +15,18 @@ class MeetupController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $cache = $this->get('cache.app');
+        $cachedCalendar = $cache->getItem('meetup.calendar');
+        if ($cachedCalendar->isHit()) {
+            $calendar = $cachedCalendar->get();
+        } else {
+            $calendar = $this->get('meetup_client')->getSelfCalendar(['page' => 25])->getData();
+            $cachedCalendar->set($calendar);
+            $cache->save($cachedCalendar);
+        }
 
+        return [
+            'calendar' => $calendar
+        ];
     }
 }
