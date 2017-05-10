@@ -10,4 +10,4 @@ services:
   meetup_client:
     class: DMS\Service\Meetup\MeetupKeyAuthClient
     factory: ['DMS\Service\Meetup\MeetupKeyAuthClient', 'factory']
-    arguments: [ {key: '%meetup_api_key%'} ]
+    arguments: [ {key: '%env(MEETUP_API_KEY)%'} ]
