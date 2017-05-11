@@ -7,6 +7,7 @@ A Symfony project created on May 10, 2017, 10:15 pm.
 composer install
 npm install
 gulp --production
+#create .env file with MEETUP_API_KEY=...
 bin/console server:start
 ```
 
