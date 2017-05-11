@@ -22,4 +22,8 @@ heroku buildpacks:set heroku/php --index 2
 
 heroku config:set SYMFONY_ENV=prod
 heroku config:set MEETUP_API_KEY=...
+
+heroku git:remote --app (app)
+git push heroku master
+
 ```
